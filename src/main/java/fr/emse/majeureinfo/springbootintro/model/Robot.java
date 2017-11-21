@@ -6,17 +6,23 @@ import javax.persistence.Entity;
 @SuppressWarnings("serial")
 public class Robot {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Sensor sensor;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Actuator actuator;
 
     public Robot(Sensor sensor, Actuator actuator) {
         this.sensor = sensor;
         this.actuator = actuator;
     }
+    public Robot() {
 
+    }
 
     public Long getId() {
         return this.id;

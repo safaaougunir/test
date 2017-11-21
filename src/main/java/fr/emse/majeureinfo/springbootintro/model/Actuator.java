@@ -6,15 +6,23 @@ import javax.persistence.*;
 @SuppressWarnings("serial")
 public class Actuator {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
     private Integer speed;
+
+    @Enumerated(EnumType.STRING)
 
     private Status status;
 
     public Actuator(Integer speed, Status status) {
         this.speed = speed;
         this.status = status;
+    }
+    public Actuator() {
+
     }
 
 

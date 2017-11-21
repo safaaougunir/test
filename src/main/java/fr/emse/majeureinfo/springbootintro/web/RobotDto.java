@@ -12,8 +12,9 @@ public class RobotDto {
 
     public RobotDto(Robot robot) {
         this.id = robot.getId();
-        this.sensor = robot.getSensor();
-        this.actuator = robot.getActuator();
+        this.light = robot.getSensor() == null ? null: new LightDto(robot.getSensor());
+        this.noise = room.getNoise() == null ? null: new NoiseDto(room.getNoise());
+
     }
 
     public Long getId() {
